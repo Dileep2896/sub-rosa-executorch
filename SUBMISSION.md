@@ -7,7 +7,7 @@
 ## Submission Title  *(min 5 / max 50)*
 
 ```
-Sub Rosa — On-Device AI Legal Intake
+Sub Rosa: On-Device AI Legal Intake
 ```
 
 ---
@@ -15,7 +15,7 @@ Sub Rosa — On-Device AI Legal Intake
 ## Short Description  *(min 50 / max 255)*
 
 ```
-Sub Rosa records a lawyer's first client consultation and turns it into structured intake notes — facts with source quotes, a missing-information checklist, and follow-up prompts — running 100% on-device and offline on the phone's NPU. No cloud, ever.
+Sub Rosa records a lawyer's first client meeting and turns it into clear intake notes: facts with the quotes that back them, the standard intake items the client never mentioned, and follow-up questions. Runs on the phone, fully offline. No cloud.
 ```
 
 ---
@@ -23,13 +23,13 @@ Sub Rosa records a lawyer's first client consultation and turns it into structur
 ## Long Description  *(min 100 words / 600–2000 chars)*
 
 ```
-Sub Rosa is an Android app that turns a lawyer's first client consultation into clean, structured intake notes — entirely on the phone, fully offline, with no network calls at any point.
+Sub Rosa is an Android app that turns a lawyer's first client meeting into clear intake notes. It runs entirely on the phone and never goes online.
 
-It records the conversation, transcribes it on-device with Whisper (whisper.cpp), attributes speakers by content (the lawyer asks, the client narrates), then runs a small on-device LLM — Qwen3-1.7B via ExecuTorch, exported to run on the Qualcomm Hexagon NPU through the QNN backend — to produce three outputs: (1) facts, each paired with the verbatim quote that supports it; (2) missing information — the standard intake items the client did NOT cover, computed as a true set-difference against a human-authored checklist; and (3) neutral follow-up prompts for the lawyer.
+The app records the conversation and transcribes it on the device with Whisper (whisper.cpp). It works out who is speaking from what they say, since the lawyer asks the questions and the client tells the story. It then runs a small language model on the device, Qwen3-1.7B with ExecuTorch on the Qualcomm Hexagon NPU through the QNN backend, and produces three things. First, the facts, each one shown next to the exact words from the transcript that back it up. Second, the missing items: the standard things a lawyer needs for this kind of matter that the client did not mention, found by comparing the conversation against a checklist. Third, a few neutral follow-up questions the lawyer might want to ask.
 
-The core design principle: the model is a reasoning-over-provided-text engine, never a knowledge source. It never states the law. All legal scaffolding comes from human-authored, matter-type checklists injected into the prompt — so a 1B-class model stays accurate and safe with zero fine-tuning. The "missing items" scorecard is the killer feature for a real intake.
+The model is only allowed to read and sort what it was given. It never states the law or gives advice. Every piece of legal knowledge lives in checklists written by people, not in the model's weights, so a small model stays accurate and there is no training step.
 
-Privacy is structural, not promised: the app holds no INTERNET permission, so the OS itself blocks any socket, and an on-screen panel proves bytes-sent stays at zero. Audio is transcribed and discarded, never persisted, and all client data is encrypted at rest with AES-256-GCM via the Android Keystore. Live metrics expose the NPU path — model-load time, tokens/sec, and the active backend — making on-device inference visible and verifiable.
+Privacy is built in. The app has no internet permission, so the phone itself stops it from opening a connection, and a panel on screen shows that nothing was sent. Audio is transcribed and thrown away, never saved. All client data is encrypted on the device with AES-256-GCM using the Android Keystore. A metrics panel shows how the model is running: load time, tokens per second, and which backend is active.
 ```
 
 ---
@@ -39,3 +39,10 @@ Privacy is structural, not promised: the app holds no INTERNET permission, so th
 ```
 Android, Kotlin, Jetpack Compose, ExecuTorch, Qualcomm QNN, Hexagon NPU, XNNPACK, Qwen3-1.7B, On-device LLM, Whisper, whisper.cpp, ggml, On-device ASR, kotlinx.serialization, Android Keystore (AES-256-GCM), Snapdragon 8 Elite
 ```
+
+---
+
+## Other fields
+
+- **Repository:** https://github.com/Dileep2896/sub-rosa-executorch
+- **License:** MIT
