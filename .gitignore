@@ -1,0 +1,32 @@
+# Gradle / Android build
+.gradle/
+**/build/
+/build
+/captures
+local.properties
+*.iml
+.idea/
+.DS_Store
+.externalNativeBuild
+.cxx
+
+# ---- Models & weights: NEVER COMMIT (Llama license forbids redistribution; large files) ----
+*.pte
+*.ptd
+*.gguf
+*.ggml
+*.bin
+*.pth
+*.safetensors
+/models/
+app/src/main/assets/models/
+# NB: human-authored JSON fixtures (checklists.json, sample_transcript.json,
+# fake_notes.json) live under app/src/main/assets/ and ARE committed.
+
+# ---- Vendored third-party binaries: NOT committed (large + proprietary redistribution) ----
+# ExecuTorch + sherpa-onnx Android AARs, and the Qualcomm QNN / Hexagon HTP native libs.
+# See README.md ("Building from source") for how to obtain and drop these back in.
+app/libs/*.aar
+app/src/main/jniLibs/**/*.so
+# Abandoned QAIRT validation libs (wrong QNN version vs the runner — superseded, see notes).
+tools/genie-validate/qairt-libs/

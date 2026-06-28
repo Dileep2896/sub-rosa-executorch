@@ -1,0 +1,46 @@
+--- a/app/src/main/java/com/subrosa/app/di/AppContainer.kt
++++ b/app/src/main/java/com/subrosa/app/di/AppContainer.kt
+@@ -78,23 +78,23 @@
+      */
+     val modelDir: File = File(app.getExternalFilesDir(null), "llama")
+ 
+-    /** True when a QNN-delegated model is present → the LLM runs on the Hexagon NPU instead of CPU/XNNPACK. */
++    /** True when the QNN-delegated NPU model is present. NPU-only build: the LLM requires it. */
+     val llmOnNpu: Boolean get() = File(modelDir, "model-qnn.pte").exists()
+ 
+     val llmEngine: LlmEngine by lazy {
+-        // Auto-select the backend: a QNN-exported model (model-qnn.pte) runs on the Hexagon NPU; otherwise
+-        // the XNNPACK model.pte runs on CPU. Both load through the same ExecuTorch 1.3.1 LlmModule API, so
+-        // dropping in the QNN model + the HTP .so libs (jniLibs/arm64-v8a) flips the LLM to the NPU.
+-        val onNpu = llmOnNpu
+-        metrics.setBackend(if (onNpu) "Hexagon NPU · QNN" else "CPU · XNNPACK")
+-        val model = if (onNpu) File(modelDir, "model-qnn.pte") else File(modelDir, "model.pte")
++        // NPU-ONLY: the LLM runs exclusively on the Hexagon NPU via the QNN-exported model-qnn.pte
++        // (ExecuTorch 1.3.1 LlmModule API + the HTP .so libs in jniLibs/arm64-v8a). The CPU/XNNPACK
++        // fallback was removed once the NPU path was verified on-device — there is no CPU path.
++        val model = File(modelDir, "model-qnn.pte")
+         val tokQnn = File(modelDir, "tokenizer-qnn.bin")
+-        val tokenizer = if (onNpu && tokQnn.exists()) tokQnn else File(modelDir, "tokenizer.bin")
+-        Log.i("LlmEngine", "backend=${if (onNpu) "QNN/Hexagon-NPU" else "XNNPACK/CPU"} model=${model.name}")
++        val tokenizer = if (tokQnn.exists()) tokQnn else File(modelDir, "tokenizer.bin")
++        metrics.setBackend("Hexagon NPU · QNN")
++        Log.i("LlmEngine", "backend=QNN/Hexagon-NPU model=${model.name}")
+         LlmEngine(
+             modelPath = model.absolutePath,
+             tokenizerPath = tokenizer.absolutePath,
+             metrics = metrics,
++            backendLabel = "Hexagon NPU · QNN",
+         )
+     }
+ 
+--- a/app/src/main/java/com/subrosa/app/llm/LlmEngine.kt
++++ b/app/src/main/java/com/subrosa/app/llm/LlmEngine.kt
+@@ -21,7 +21,7 @@
+     private val modelPath: String,
+     private val tokenizerPath: String,
+     private val metrics: MetricsCollector,
+-    private val backendLabel: String = "ExecuTorch · CPU (XNNPACK)",
++    private val backendLabel: String = "Hexagon NPU · QNN",
+     private val temperature: Float = 0.2f,
+ ) {
+     @Volatile

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Exposes attached documents to a viewer app. doc_open holds short-lived decrypted copies. -->
+    <files-path name="documents" path="documents/" />
+    <cache-path name="doc_open" path="doc_open/" />
+    <!-- Generated case-report PDFs (ephemeral; shared, not persisted). -->
+    <cache-path name="reports" path="reports/" />
+</paths>

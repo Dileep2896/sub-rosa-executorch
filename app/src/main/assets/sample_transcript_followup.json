@@ -1,0 +1,9 @@
+{
+  "segments": [
+    { "speaker": "LAWYER", "text": "Before we go on — was there any witness to the agreement, anyone else present?", "confidence": 0.97, "startMs": 0, "endMs": 4000 },
+    { "speaker": "CLIENT", "text": "Yes, my business partner Dana was there the whole time and can confirm what was promised.", "confidence": 0.94, "startMs": 4000, "endMs": 10000 },
+    { "speaker": "LAWYER", "text": "Have you tried to resolve this with Trellis yourself?", "confidence": 0.97, "startMs": 10000, "endMs": 13000 },
+    { "speaker": "CLIENT", "text": "I emailed them twice and left a voicemail asking them to finish the site or refund me, but they never replied.", "confidence": 0.90, "startMs": 13000, "endMs": 20000 },
+    { "speaker": "CLIENT", "text": "And I checked — we did sign a short contract by email on March 8th, so it was in writing.", "confidence": 0.88, "startMs": 20000, "endMs": 26000 }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "facts": [
+    { "statement": "The client hired Trellis Studio to build a website for her bakery.", "source_quote": "I hired a company called Trellis Studio to build a website for my bakery" },
+    { "statement": "The agreed price was $4,000, with a $2,000 deposit paid up front.", "source_quote": "We agreed they would deliver the finished website for four thousand dollars, and I paid two thousand dollars up front as a deposit." },
+    { "statement": "Trellis Studio missed the delivery deadline and stopped responding.", "source_quote": "They were supposed to have it done by last Friday, but they just stopped responding to me." },
+    { "statement": "The client believes the agreement was reached on or around March 8th.", "source_quote": "It was March 8th, I think." },
+    { "statement": "The client is unsure whether a formal contract was signed or the agreement was only by email.", "source_quote": "I'm not sure if we ever signed an actual contract, or if it was all just over email." },
+    { "statement": "The client has the email correspondence but cannot locate the deposit invoice.", "source_quote": "I've got all our emails saved, but I cannot find the invoice for my deposit anywhere." },
+    { "statement": "The client lost the $2,000 deposit and expects added cost to finish the website.", "source_quote": "That two thousand dollars is just gone, and now I'll have to pay someone else to finish the site." }
+  ],
+  "missing": [
+    "Any witnesses",
+    "Whether the client tried to resolve it / mitigate"
+  ],
+  "prompts": [
+    "Ask the client to confirm the delivery deadline — they mentioned both \"last Friday\" and \"the eighth\".",
+    "Ask whether the agreement was put in writing and signed, or only exchanged over email.",
+    "Ask the client to try to obtain a copy of the missing deposit invoice.",
+    "Ask whether anyone else was involved in or witnessed the agreement.",
+    "Ask whether the client has already contacted Trellis Studio to try to resolve the matter."
+  ]
+}

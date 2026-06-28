@@ -1,0 +1,15 @@
+{
+  "segments": [
+    { "speaker": "LAWYER", "text": "Thanks for coming in. Tell me what brought you here today.", "confidence": 0.98, "startMs": 0, "endMs": 3200 },
+    { "speaker": "CLIENT", "text": "I hired a company called Trellis Studio to build a website for my bakery, and they never finished it.", "confidence": 0.95, "startMs": 3200, "endMs": 9000 },
+    { "speaker": "CLIENT", "text": "We agreed they would deliver the finished website for four thousand dollars, and I paid two thousand dollars up front as a deposit.", "confidence": 0.93, "startMs": 9000, "endMs": 16000 },
+    { "speaker": "CLIENT", "text": "They were supposed to have it done by last Friday, but they just stopped responding to me.", "confidence": 0.90, "startMs": 16000, "endMs": 21000 },
+    { "speaker": "LAWYER", "text": "When did you and Trellis first agree to the work?", "confidence": 0.97, "startMs": 21000, "endMs": 24000 },
+    { "speaker": "CLIENT", "text": "It was March 8th, I think. We had emailed back and forth for a couple of weeks before that.", "confidence": 0.88, "startMs": 24000, "endMs": 30000 },
+    { "speaker": "CLIENT", "text": "Honestly, I'm not sure if we ever signed an actual contract, or if it was all just over email.", "confidence": 0.84, "startMs": 30000, "endMs": 36000 },
+    { "speaker": "CLIENT", "text": "And the deadline — I keep second-guessing myself, but I think they promised it by the eighth.", "confidence": 0.52, "startMs": 36000, "endMs": 42000 },
+    { "speaker": "CLIENT", "text": "I've got all our emails saved, but I cannot find the invoice for my deposit anywhere.", "confidence": 0.91, "startMs": 42000, "endMs": 48000 },
+    { "speaker": "CLIENT", "text": "That two thousand dollars is just gone, and now I'll have to pay someone else to finish the site.", "confidence": 0.90, "startMs": 48000, "endMs": 54000 },
+    { "speaker": "LAWYER", "text": "Okay. Let me make sure I understand the timeline and what you have in writing.", "confidence": 0.97, "startMs": 54000, "endMs": 59000 }
+  ]
+}

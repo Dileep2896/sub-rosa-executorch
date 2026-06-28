@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Window-level theme only. Actual UI styling is done in Compose (Material 3).
+      A platform theme is used here so we don't pull in the Material Components XML
+      library for a Compose-only app.
+    -->
+    <style name="Theme.SubRosa" parent="android:Theme.Material.NoActionBar" />
+</resources>

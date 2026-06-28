@@ -1,0 +1,137 @@
+[
+  {
+    "matterType": "CONTRACT_DISPUTE",
+    "displayName": "Contract dispute",
+    "items": [
+      { "id": "parties", "label": "Parties to the agreement identified" },
+      { "id": "written_or_oral", "label": "Whether the agreement was written or oral" },
+      { "id": "agreement_date", "label": "Date the agreement was made" },
+      { "id": "consideration", "label": "What each party promised (consideration)" },
+      { "id": "breach", "label": "What specifically went wrong (the breach)" },
+      { "id": "breach_dates", "label": "Dates of the breach or non-performance" },
+      { "id": "damages", "label": "Financial loss or damages claimed" },
+      { "id": "mitigation", "label": "Whether the client tried to resolve it / mitigate" },
+      { "id": "evidence", "label": "Any documents or evidence (invoices, emails, signed copy)" },
+      { "id": "witnesses", "label": "Any witnesses" }
+    ]
+  },
+  {
+    "matterType": "LANDLORD_TENANT",
+    "displayName": "Landlord / tenant",
+    "items": [
+      { "id": "parties", "label": "Parties (landlord, tenant) identified" },
+      { "id": "property", "label": "Property address" },
+      { "id": "lease_terms", "label": "Lease terms (rent, duration, written or oral)" },
+      { "id": "issue", "label": "The specific issue (eviction, deposit, repairs, etc.)" },
+      { "id": "dates", "label": "Relevant dates (notice given, incident, lease start/end)" },
+      { "id": "communications", "label": "Communications between parties" },
+      { "id": "evidence", "label": "Photos or documents of the issue" },
+      { "id": "amount", "label": "Amount of money in dispute" }
+    ]
+  },
+  {
+    "matterType": "EMPLOYMENT",
+    "displayName": "Employment",
+    "items": [
+      { "id": "parties", "label": "Employer and employee identified" },
+      { "id": "role_dates", "label": "Role and employment dates" },
+      { "id": "issue", "label": "Nature of the issue (termination, wages, discrimination, etc.)" },
+      { "id": "key_dates", "label": "Key dates (incident, termination, complaint filed)" },
+      { "id": "contract", "label": "Whether there is a written contract or handbook" },
+      { "id": "evidence", "label": "Witnesses or documentation" },
+      { "id": "internal_complaint", "label": "Whether any complaint was already raised internally" },
+      { "id": "financial_impact", "label": "Financial impact" }
+    ]
+  },
+  {
+    "matterType": "PERSONAL_INJURY",
+    "displayName": "Personal injury",
+    "items": [
+      { "id": "parties", "label": "Injured person and at-fault party identified" },
+      { "id": "how", "label": "How and where the injury occurred" },
+      { "id": "when", "label": "Date and time of the incident" },
+      { "id": "injuries", "label": "Nature and extent of injuries" },
+      { "id": "treatment", "label": "Medical treatment received (providers, dates)" },
+      { "id": "report", "label": "Police or incident report filed" },
+      { "id": "witnesses", "label": "Any witnesses" },
+      { "id": "insurance", "label": "Insurance information (both parties)" },
+      { "id": "lost_income", "label": "Lost wages or income" },
+      { "id": "evidence", "label": "Photos or evidence of the scene / injuries" }
+    ]
+  },
+  {
+    "matterType": "FAMILY",
+    "displayName": "Family / divorce",
+    "items": [
+      { "id": "parties", "label": "Parties (spouses / parents) identified" },
+      { "id": "timeline", "label": "Date of marriage and date of separation" },
+      { "id": "children", "label": "Children and their ages" },
+      { "id": "custody", "label": "Custody or parenting arrangement sought" },
+      { "id": "assets", "label": "Assets and property to divide" },
+      { "id": "debts", "label": "Debts and liabilities" },
+      { "id": "income", "label": "Income of each party" },
+      { "id": "orders", "label": "Any existing agreements or court orders" },
+      { "id": "safety", "label": "Any domestic safety concerns" }
+    ]
+  },
+  {
+    "matterType": "IMMIGRATION",
+    "displayName": "Immigration",
+    "items": [
+      { "id": "status", "label": "Nationality and current immigration status" },
+      { "id": "entry", "label": "Date and manner of entry" },
+      { "id": "document", "label": "Current visa / document type and expiry" },
+      { "id": "goal", "label": "Immigration goal (visa, residence, citizenship, asylum)" },
+      { "id": "sponsor", "label": "Family or employer sponsorship details" },
+      { "id": "history", "label": "Prior applications or denials" },
+      { "id": "violations", "label": "Any criminal or immigration violations" },
+      { "id": "deadlines", "label": "Key dates and deadlines" },
+      { "id": "documents", "label": "Supporting documents available" }
+    ]
+  },
+  {
+    "matterType": "ESTATE_PROBATE",
+    "displayName": "Estate / probate",
+    "items": [
+      { "id": "decedent", "label": "Decedent identified and date of death" },
+      { "id": "will", "label": "Existence and location of a will" },
+      { "id": "executor", "label": "Named executor / personal representative" },
+      { "id": "heirs", "label": "Heirs and beneficiaries" },
+      { "id": "assets", "label": "Estate assets and approximate value" },
+      { "id": "debts", "label": "Outstanding debts and taxes" },
+      { "id": "property", "label": "Real property in the estate" },
+      { "id": "disputes", "label": "Any disputes among heirs" },
+      { "id": "documents", "label": "Prior estate-planning documents" }
+    ]
+  },
+  {
+    "matterType": "SMALL_CLAIMS",
+    "displayName": "Small claims",
+    "items": [
+      { "id": "parties", "label": "Parties identified" },
+      { "id": "issue", "label": "What the dispute is about" },
+      { "id": "amount", "label": "Amount claimed" },
+      { "id": "dates", "label": "Date(s) the issue arose" },
+      { "id": "evidence", "label": "Supporting documents (receipts, contracts, photos)" },
+      { "id": "communications", "label": "Communications between parties" },
+      { "id": "mitigation", "label": "Attempts to resolve" },
+      { "id": "witnesses", "label": "Any witnesses" },
+      { "id": "deadline", "label": "Relevant deadline / limitation period" }
+    ]
+  },
+  {
+    "matterType": "OTHER",
+    "displayName": "Other / general intake",
+    "items": [
+      { "id": "parties", "label": "Parties involved" },
+      { "id": "summary", "label": "What happened (summary)" },
+      { "id": "dates", "label": "Key dates" },
+      { "id": "goal", "label": "What the client wants to achieve" },
+      { "id": "evidence", "label": "Documents or evidence available" },
+      { "id": "witnesses", "label": "Any witnesses" },
+      { "id": "prior_steps", "label": "Prior steps taken" },
+      { "id": "deadlines", "label": "Deadlines or time pressures" },
+      { "id": "financial_impact", "label": "Financial impact" }
+    ]
+  }
+]

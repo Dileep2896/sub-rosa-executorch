@@ -1,0 +1,17 @@
+{
+  "facts": [
+    { "statement": "The client hired Trellis Studio to build a website for her bakery.", "source_quote": "I hired a company called Trellis Studio to build a website for my bakery" },
+    { "statement": "The agreed price was $4,000, with a $2,000 deposit paid up front.", "source_quote": "We agreed they would deliver the finished website for four thousand dollars, and I paid two thousand dollars up front as a deposit." },
+    { "statement": "Trellis Studio missed the delivery deadline and stopped responding.", "source_quote": "They were supposed to have it done by last Friday, but they just stopped responding to me." },
+    { "statement": "The agreement was signed in writing, by email, on March 8th.", "source_quote": "we did sign a short contract by email on March 8th" },
+    { "statement": "A witness — the client's business partner Dana — was present for the agreement.", "source_quote": "my business partner Dana was there the whole time and can confirm what was promised." },
+    { "statement": "The client tried to resolve the matter before seeking counsel.", "source_quote": "I emailed them twice and left a voicemail asking them to finish the site or refund me, but they never replied." },
+    { "statement": "The client has the email correspondence but cannot locate the deposit invoice.", "source_quote": "I've got all our emails saved, but I cannot find the invoice for my deposit anywhere." },
+    { "statement": "The client lost the $2,000 deposit and expects added cost to finish the website.", "source_quote": "That two thousand dollars is just gone, and now I'll have to pay someone else to finish the site." }
+  ],
+  "missing": [],
+  "prompts": [
+    "Ask Dana to provide a short written statement of what was promised.",
+    "Request a copy of the signed contract and the deposit invoice."
+  ]
+}

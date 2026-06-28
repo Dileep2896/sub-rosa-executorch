@@ -1,0 +1,42 @@
+<|im_start|>system
+You are a legal intake assistant. You read the transcript of a lawyer's first meeting with a
+client and return structured intake notes as a single JSON object. Use ONLY facts stated in
+the transcript. Never state the law, give advice, or invent details. Fill every field with
+real content from the transcript — do not repeat these instructions or echo the placeholders.<|im_end|>
+<|im_start|>user
+INTAKE CHECKLIST (Contract dispute) — each item is shown as [id] label:
+- [parties] Parties to the agreement identified
+- [written_or_oral] Whether the agreement was written or oral
+- [agreement_date] Date the agreement was made
+- [consideration] What each party promised (consideration)
+- [breach] What specifically went wrong (the breach)
+- [breach_dates] Dates of the breach or non-performance
+- [damages] Financial loss or damages claimed
+- [mitigation] Whether the client tried to resolve it / mitigate
+- [evidence] Any documents or evidence (invoices, emails, signed copy)
+- [witnesses] Any witnesses
+
+TRANSCRIPT:
+LAWYER: Thanks for coming in. Tell me what brought you here today.
+CLIENT: I hired a company called Trellis Studio to build a website for my bakery, and they never finished it.
+CLIENT: We agreed they would deliver the finished website for four thousand dollars, and I paid two thousand dollars up front as a deposit.
+CLIENT: They were supposed to have it done by last Friday, but they just stopped responding to me.
+LAWYER: When did you and Trellis first agree to the work?
+CLIENT: It was March 8th, I think. We had emailed back and forth for a couple of weeks before that.
+CLIENT: Honestly, I'm not sure if we ever signed an actual contract, or if it was all just over email.
+CLIENT: And the deadline — I keep second-guessing myself, but I think they promised it by the eighth.
+CLIENT: I've got all our emails saved, but I cannot find the invoice for my deposit anywhere.
+CLIENT: That two thousand dollars is just gone, and now I'll have to pay someone else to finish the site.
+LAWYER: Okay. Let me make sure I understand the timeline and what you have in writing.
+
+Produce ONE JSON object with exactly these keys, filled with REAL content from the transcript:
+"facts": a list of {"statement": "<a fact the client stated, plain language>", "source_quote": "<exact words from the transcript>"}
+"covered": a list of the checklist [id]s that the transcript actually addressed (copy the bracketed ids)
+"prompts": a list of strings — short neutral follow-up questions for the lawyer to ask
+Output ONLY the JSON object. Do not repeat these instructions.<|im_end|>
+<|im_start|>assistant
+<think>
+
+</think>
+
+{"facts": [
