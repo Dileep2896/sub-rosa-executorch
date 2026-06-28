@@ -37,22 +37,26 @@ competence equals the quality of those checklists, which are auditable data file
 
 ## How it works (on-device pipeline)
 
-```
-🎙️ Microphone
-   │
-   ▼  Whisper base.en  ·  whisper.cpp + ggml  ·  CPU/NEON
-Live transcript  (timestamped lines)
-   │
-   ▼  Speaker diarization  ·  pyannote + sherpa-onnx  ·  voiceprints (who-spoke-when)
-Speaker-labeled transcript
-   │
-   ▼  matter-type checklist (data)  +  transcript  +  system prompt
-On-device LLM  ·  Qwen3-1.7B  ·  ExecuTorch  →  Hexagon NPU (QNN)   [ CPU/XNNPACK = fallback only ]
-   │
-   ▼
-JSON  { facts[], missing[], prompts[] }
-   │
-   ▼  🔒 AES-256-GCM encrypted local store  +  themed PDF case report
+```mermaid
+flowchart LR
+    subgraph DEVICE["📱 On-device only · Samsung Galaxy S25 Ultra · Snapdragon 8 Elite"]
+        direction TB
+        MIC["🎙️ Microphone"]
+        MIC --> ASR["<b>Whisper base.en</b><br/>whisper.cpp · CPU/NEON<br/><i>speech → text lines</i>"]
+        ASR --> TRX["Transcript lines<br/><i>live, with timestamps</i>"]
+        TRX --> ATTR["<b>Speaker diarization</b><br/>pyannote · sherpa-onnx<br/><i>voiceprints · who-spoke-when</i>"]
+        ATTR --> LAB["Speaker-labeled transcript"]
+        LAB --> LLM["<b>Qwen3-1.7B</b><br/>ExecuTorch · <b>QNN → Hexagon NPU</b><br/><i>extract → strict JSON</i>"]
+        LLM --> NOTES["<b>Intake notes</b><br/>facts · missing items · follow-ups"]
+        NOTES --> STORE["🔒 Encrypted local store<br/>+ themed PDF case report"]
+    end
+    CPU(["CPU · XNNPACK<br/><i>fallback only</i>"])
+    LLM -. "on any DSP failure" .-> CPU
+    NET(["☁️ Internet / Cloud"])
+    DEVICE -. "🚫 no INTERNET permission · OS-enforced" .-> NET
+    style NET stroke-dasharray: 5 5
+    style CPU stroke-dasharray: 4 4
+    style LLM fill:#6E1F2A,stroke:#52141D,color:#FBF6EC
 ```
 
 The LLM stage is the technical centerpiece and runs on the **Hexagon NPU** through ExecuTorch's QNN
@@ -61,7 +65,9 @@ backend. `NpuRunnerEngine` drives Qualcomm's `qnn_llama_runner` over a QNN-expor
 DSP fails. The app auto-detects `model-qnn.pte` at launch (`AppContainer.llmOnNpu`) — NPU when present,
 CPU as the safety net.
 
-📐 Full architecture, with eight Mermaid diagrams, lives in **[`ARCHITECTURE.md`](ARCHITECTURE.md)**.
+📐 Full architecture, with eight Mermaid diagrams (layers, consultation flow, capture &
+diarization, notes generation, models/runtimes, privacy, data model), lives in
+**[`ARCHITECTURE.md`](ARCHITECTURE.md)**.
 
 ---
 
